@@ -23,8 +23,13 @@ namespace dal.Sql
         {
             optionsBuilder.UseSqlServer($@"Server=(localdb)\MSSQLLocalDB;Database=Aula;");//String de conexão SQL
         }
-       public DbSet<Produtoss> Produtoss { get; set; }//Provider de referência a tabela do banco em execução
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ProdutoCategoria>().HasKey(c => new { c.ProdutoId, c.CategoriaId });
+        }
+        public DbSet<Produtoss> Produtoss { get; set; }//Provider de referência a tabela do banco em execução
         public DbSet<Estoqueee> Estoqueee { get; set; }//Provider de referência a tabela
         public DbSet<Categoria> Categoria { get; set; }//criado sem ter no banco... para ser aplicado a partir do codigo
+        public DbSet<ProdutoCategoria> ProdutoCategoria { get; set; }//criado sem ter no banco... para ser aplicado a partir do codigo
     }
 }
