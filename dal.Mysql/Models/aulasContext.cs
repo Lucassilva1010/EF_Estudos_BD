@@ -16,6 +16,7 @@ namespace dal.Mysql.Models
         {
         }
 
+        public virtual DbSet<Categorium> Categoria { get; set; } = null!;
         public virtual DbSet<Estoque> Estoques { get; set; } = null!;
         public virtual DbSet<Produtoss> Produtosses { get; set; } = null!;
 
@@ -32,6 +33,13 @@ namespace dal.Mysql.Models
         {
             modelBuilder.UseCollation("utf8mb4_0900_ai_ci")
                 .HasCharSet("utf8mb4");
+
+            modelBuilder.Entity<Categorium>(entity =>
+            {
+                entity.ToTable("categoria");
+
+                entity.Property(e => e.Nome).HasMaxLength(60);
+            });
 
             modelBuilder.Entity<Estoque>(entity =>
             {

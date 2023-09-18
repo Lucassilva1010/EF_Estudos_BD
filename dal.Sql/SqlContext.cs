@@ -33,3 +33,4 @@ namespace dal.Sql
         public DbSet<ProdutoCategoria> ProdutoCategoria { get; set; }//criado sem ter no banco... para ser aplicado a partir do codigo
     }
 }
+

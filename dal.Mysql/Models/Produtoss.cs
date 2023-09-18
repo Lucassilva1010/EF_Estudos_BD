@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Modelo;
+using System;
 using System.Collections.Generic;
 
 namespace dal.Mysql.Models
@@ -8,6 +9,7 @@ namespace dal.Mysql.Models
         public Produtoss()
         {
             Estoques = new HashSet<Estoque>();
+            Categorium = new HashSet<Categorium>();
         }
 
         public int Id { get; set; }
@@ -15,5 +17,6 @@ namespace dal.Mysql.Models
         public string Corr { get; set; } = null!;
 
         public virtual ICollection<Estoque> Estoques { get; set; }
+        public virtual ICollection<Categorium> Categorium { get; set; }
     }
 }
