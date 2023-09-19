@@ -16,7 +16,7 @@ namespace Modelo
         public string  Nome { get; set; }
         public string  Cor { get; set; }
 
-        public virtual Estoqueee ? Estoques { get; set; }
+        public virtual Estoqueee ? Estoqueee { get; set; }
         public virtual ICollection<ProdutoCategoria> ProdutoCategorias { get; set; }
 
     }
